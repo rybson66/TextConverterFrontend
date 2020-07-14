@@ -1,0 +1,13 @@
+<div class="container" [formGroup]="form">
+    <div class="buttons-container" fxLayout="row" fxLayoutGap="5px">
+        <button mat-flat-button color="primary" (click)="toCSV()">DOWNLOAD AS CSV</button>
+        <button mat-flat-button color="primary" (click)="toXML()">DOWNLOAD AS XML</button>
+    </div>
+    <div fxLayout="row" fxLayoutGap="5px">
+        <mat-form-field appearance="fill" class="text-area-input">
+            <mat-label>Input text</mat-label>
+            <textarea matInput formControlName="text" cdkTextareaAutosize cdkAutosizeMinRows="20"
+                cdkAutosizeMaxRows="50"></textarea>
+        </mat-form-field>
+    </div>
+</div>
