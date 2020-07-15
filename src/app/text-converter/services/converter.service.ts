@@ -21,12 +21,16 @@ export class ConverterService {
     let dto = new TextToConvertDTO();
     dto.text = text;
 
-    return this.http.post(url, dto, { responseType: 'blob' }).subscribe(res => {
-      var a = document.createElement("a");
-      a.href = URL.createObjectURL(res);
-      a.download = "text.csv";
-      a.click();
-    });
+    return this.http.post(url, dto, { responseType: 'blob' }).subscribe(
+      res => {
+        var a = document.createElement("a");
+        a.href = URL.createObjectURL(res);
+        a.download = "text.csv";
+        a.click();
+      },
+      err => this.handleError(err),
+      () => { }
+    );
   }
 
   downloadXML(text: string) {
@@ -35,12 +39,16 @@ export class ConverterService {
     let dto = new TextToConvertDTO();
     dto.text = text;
 
-    return this.http.post(url, dto, { responseType: 'blob' }).subscribe(res => {
-      var a = document.createElement("a");
-      a.href = URL.createObjectURL(res);
-      a.download = "text.xml";
-      a.click();
-    });
+    return this.http.post(url, dto, { responseType: 'blob' }).subscribe(
+      res => {
+        var a = document.createElement("a");
+        a.href = URL.createObjectURL(res);
+        a.download = "text.xml";
+        a.click();
+      },
+      err => this.handleError(err),
+      () => {}
+    );
   }
 
   handleError(error: HttpErrorResponse) {
